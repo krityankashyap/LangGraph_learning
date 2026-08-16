@@ -27,4 +27,6 @@ graph.add_edge("process", END)
 app= graph.compile()
 
 user_input= input("User: ")
-app.invoke({"messages": [HumanMessage(content=user_input)]})
+while user_input.lower() != "exit":
+  state= app.invoke({"messages": [HumanMessage(content=user_input)]})
+  user_input= input("User: ")
